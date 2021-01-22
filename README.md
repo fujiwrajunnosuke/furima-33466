@@ -1,36 +1,24 @@
-## users table
+# README
 
-| Column             | Type                | Options                 |
-|--------------------|---------------------|-------------------------|
-| name               | string              | null: false             |
-| email              | string              | null: false             |
-| password           | string              | null: false             |
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-### Association
+Things you may want to cover:
 
-* has_many :items
-* has_many :orders
+* Ruby version
 
-## items table
+* System dependencies
 
-| Column                              | Type        | Options           |
-|-------------------------------------|-------------|-------------------|
-| image                               | active型    |                   |
-| name                                | string      | null: false       |
-| introduction                        | text        | null: false       |
-### Association
+* Configuration
 
-- has_many :users
-- has_many :orders
+* Database creation
 
-## orders table
+* Database initialization
 
-| Column      | Type       | Options           |
-|-------------|------------|-------------------|
-| user        | references | foreign_key: true |
-| item        | references | foreign_key: true |
+* How to run the test suite
 
-### Association
+* Services (job queues, cache servers, search engines, etc.)
+
 
 - belongs_to :user
-- belongs_to :item
+- belongs_to :iteｍ
