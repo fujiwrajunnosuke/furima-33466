@@ -33,4 +33,4 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :item
+- belongs_to :iteｍ
