@@ -45,13 +45,7 @@
 
 - belongs_to :user
 - belongs_to :item
-
-### アソシエーションをもう一度確認ください。
-現状userとitemが多対多となっております。
-ユーザーはたくさんの商品を出品できますが、商品は一人のユーザーにしか紐づきません。
-また、商品一つに対しては購入履歴は一つしか紐づきません。
-
-このことから、アソシエーションを再度考えてみましょう！
+- has_many :address
 
 ## address table
 
@@ -63,3 +57,7 @@
 | house_number       | integer    | null: false       |
 | building_name      | string     |                   |
 | phone_number       | integer    | null: false       |
+
+### Association
+
+- belongs_to :orders
