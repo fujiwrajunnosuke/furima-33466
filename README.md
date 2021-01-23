@@ -49,14 +49,15 @@
 
 ## addresses table
 
-| Column                | Type    | Options           |
-|-----------------------|---------|-------------------|
-| postal_code           | string  | null: false       |
-| delivery_prefecture_id| integer | null: false       |
-| municipality          | string  | null: false       |
-| house_number          | string  | null: false       |
-| building_name         | string  |                   |
-| phone_number          | string  | null: false       |
+| Column                | Type      | Options           |
+|-----------------------|-----------|-------------------|
+| postal_code           | string    | null: false       |
+| delivery_prefecture_id| integer   | null: false       |
+| municipality          | string    | null: false       |
+| house_number          | string    | null: false       |
+| building_name         | string    |                   |
+| phone_number          | string    | null: false       |
+| order                 | references| foreign_key: true |
 
 ### Association
 
