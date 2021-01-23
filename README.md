@@ -1,15 +1,16 @@
 ## users table
 
-| Column                | Type                | Options                 |
-|-----------------------|---------------------|-------------------------|
-| name                  | string              | null: false             |
-| email                 | string              | null: false             |
-| encrypted_password    | string              | null: false             |
-| family_name           | string              | null: false             |
-| first_name            | string              | null: false             |
-| call_family_name      | string              | null: false             |
-| call_first_name       | string              | null: false             |
-| birth_day             | integer             | null: false             |
+| Column                | Type                | Options                       |
+|-----------------------|---------------------|-------------------------------|
+| name                  | string              | null: false                   |
+| email                 | string              | null: false, uniqueness: true |
+| encrypted_password    | string              | null: false                   |
+| family_name           | string              | null: false                   |
+| first_name            | string              | null: false                   |
+| call_family_name      | string              | null: false                   |
+| call_first_name       | string              | null: false                   |
+| birth_day             | integer             | null: false                   |
+
 
 ### Association
 
@@ -26,13 +27,12 @@
 | state_id                            | integer     | null: false       |
 | delivery_price                      | integer     | null: false       |
 | delivery_prefectures                | integer     | null: false       |
-| delivery_days                       | integer     | null: false       |
+| delivery_days                       | date        | null: false       |
 | price                               | integer     | null: false       |
+| user                                | references  | foreign_key: true |
 
-### Association
-
-- belongs_to :users
-- belongs_to :orders
+- belongs_to :user
+- has_one :order
 
 ## orders table
 
@@ -44,20 +44,20 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :item
-- has_many :address
+- belongs_to :item
+- has_one :address
 
 ## address table
 
 | Column             | Type       | Options           |
 |--------------------|------------|-------------------|
-| postal_code        | integer    | null: false       |
-| prefectures        | integer    | null: false       | 
+| postal_code        | string     | null: false       |
+| prefectures_id     | integer    | null: false       | 
 | municipality       | string     | null: false       |
-| house_number       | integer    | null: false       |
+| house_number       | string     | null: false       |
 | building_name      | string     |                   |
-| phone_number       | integer    | null: false       |
+| phone_number       | string     | null: false       |
 
 ### Association
 
-- belongs_to :orders
+- belongs_to :order
