@@ -25,9 +25,9 @@
 | introduction                        | text        | null: false       |
 | category_id                         | integer     | null: false       |
 | state_id                            | integer     | null: false       |
-| delivery_price                      | integer     | null: false       |
-| delivery_prefectures                | integer     | null: false       |
-| delivery_days                       | date        | null: false       |
+| delivery_price_id                   | integer     | null: false       |
+| delivery_prefecture_id              | integer     | null: false       |
+| delivery_day_id                     | date        | null: false       |
 | price                               | integer     | null: false       |
 | user                                | references  | foreign_key: true |
 
