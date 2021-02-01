@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   before do
-    @item = FactoryBot.build(:user)
+    @item = FactoryBot.build(:item)
   end
 
   describe '商品出品機能' do
@@ -20,37 +20,37 @@ RSpec.describe Item, type: :model do
       end
 
       it "introductionが空だと登録できない" do
-        @item.introduction = nil
+        @item.introduction = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Introduction can't be blank")
       end
 
       it "category_idが1だと登録できない" do
-        @item.category = nil
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
 
       it "state_idが1だと登録できない" do
-        @item.state = nil
+        @item.state_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("State must be other than 1")
       end
 
       it "delivery_price_idが1だと登録できない" do
-        @item.delivery_price = nil
+        @item.delivery_price_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery price must be other than 1")
       end
 
       it "delivery_prefecture_idが1だと登録できない" do
-        @item.delivery_prefecture = nil
+        @item.delivery_prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery prefecture must be other than 1")
       end
 
       it "delivery_day_idが1だと登録できない" do
-        @item.delivery_day = nil
+        @item.delivery_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
       end
