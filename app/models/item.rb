@@ -10,6 +10,5 @@ class Item < ApplicationRecord
 
   validates :name, :image, :introduction, :price, presence: true
   validates :category_id, :delivery_day_id, :delivery_prefecture_id, :delivery_price_id, :state_id, numericality: { other_than: 1 }   
-  validates :price, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください'},
-                    numericality: { greater_than: 299, less_than: 10000001, message: "is out of setting range"}
+  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10000001, message: "is out of setting range"}
 end
