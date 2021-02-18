@@ -2,7 +2,12 @@ require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
   before do
-    @order_address = FactoryBot.build(:order_address)
+    @user = FactoryBot.build(:user)
+    @item = FactoryBot.build(:item)
+    @user.save
+    @item.save
+    @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id )
+    sleep 1
   end
 
   describe '購入機能実装' do
@@ -76,6 +81,22 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.phone_number = "１２３４５６７８９０１"
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone number is invalid.")
+      end
+
+      it "phone_numberは英数混合では登録できない" do
+        @order_address.phone_number = "1a2b3c4d5e6f"
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number is invalid.")
+      end
+
+      it "user_idが空だと登録できない" do
+        @order_address.user_id = nil
+        @order_address.valid?
+      end
+
+      it "item_idが空だと登録できない" do
+        @order_address.item_id = nil
+        @order_address.valid?
       end
     end
   end
